@@ -1,0 +1,6 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6380 # host pc(6380) -> docker(6379)
+      timeout: 3000 #3? (3? ?? ?? ??? ?? ?? ??)

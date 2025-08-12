@@ -29,3 +29,7 @@ eureka:
 server:
   port: 8004
 
+jwt:
+  secret: 1ad35d74dc65cc0ee9a3a409f7f87e332aa6aa89d9cc64c66cdf9a1ffdc534ee
+  expiration: 3600000 # 1??
+  refresh-expiration: 86400000 # 24??

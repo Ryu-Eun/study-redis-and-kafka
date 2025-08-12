@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] User, UserLoginHistory 엔티티 추가">
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/config/PasswordEncoderConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/DuplicateUserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/UnauthorizedAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/repository/UserLoginHistoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/service/UserService.java" afterDir="false" />
+    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] UserService 추가&#10;- 유저 추가 &#10;- email, password로 로그인&#10;- userId로 유저 조회&#10;- 이름 변경&#10;- 비밀번호 변경 &#10;- 유저히스토리 조회">
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/service/JWTService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/user-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +158,7 @@
       <option name="presentableId" value="Default" />
       <updated>1754963509761</updated>
       <workItem from="1754963510757" duration="105000" />
-      <workItem from="1754963661215" duration="9716000" />
+      <workItem from="1754963661215" duration="14981000" />
     </task>
     <task id="LOCAL-00001" summary="[feature] PROJECT-PROMOTION 추가">
       <option name="closed" value="true" />
@@ -197,7 +192,39 @@
       <option name="project" value="LOCAL" />
       <updated>1754999390106</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[feature] 커스텀 Exception 추가 &#10;- DuplicateUserException&#10;- UnauthorizedAccessException&#10;- UserNotFoundException">
+      <option name="closed" value="true" />
+      <created>1755008643421</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755008643421</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[feature] PasswordEncoderConfig 추가&#10;- BCryptPasswordEncoder 사용">
+      <option name="closed" value="true" />
+      <created>1755010634441</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1755010634441</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[feature] UserLoginHistoryRepository, UserRepository 추가">
+      <option name="closed" value="true" />
+      <created>1755010655226</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1755010655226</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[feature] UserService 추가&#10;- 유저 추가 &#10;- email, password로 로그인&#10;- userId로 유저 조회&#10;- 이름 변경&#10;- 비밀번호 변경 &#10;- 유저히스토리 조회">
+      <option name="closed" value="true" />
+      <created>1755010725273</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1755010725273</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +245,10 @@
     <MESSAGE value="[feature] PROJECT-PROMOTION 추가" />
     <MESSAGE value="[feature] 껍데기 프로젝트 promotion과 user-service, discovery-service 추가&#10;- discovery-service: eureka-server 의존성&#10;- user-service: eureka-client 의존성" />
     <MESSAGE value="[feature] User, UserLoginHistory 엔티티 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feature] User, UserLoginHistory 엔티티 추가" />
+    <MESSAGE value="[feature] 커스텀 Exception 추가 &#10;- DuplicateUserException&#10;- UnauthorizedAccessException&#10;- UserNotFoundException" />
+    <MESSAGE value="[feature] PasswordEncoderConfig 추가&#10;- BCryptPasswordEncoder 사용" />
+    <MESSAGE value="[feature] UserLoginHistoryRepository, UserRepository 추가" />
+    <MESSAGE value="[feature] UserService 추가&#10;- 유저 추가 &#10;- email, password로 로그인&#10;- userId로 유저 조회&#10;- 이름 변경&#10;- 비밀번호 변경 &#10;- 유저히스토리 조회" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feature] UserService 추가&#10;- 유저 추가 &#10;- email, password로 로그인&#10;- userId로 유저 조회&#10;- 이름 변경&#10;- 비밀번호 변경 &#10;- 유저히스토리 조회" />
   </component>
 </project>

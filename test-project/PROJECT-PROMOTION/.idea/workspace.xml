@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="" />
+    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] PROJECT-PROMOTION 추가">
+      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/entity/UserLoginHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,43 +19,123 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/promotion">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/promotion/discovery-service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/promotion/user-service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="promotion" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ryu-Eun"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ryu-Eun&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:Ryu-Eun/study-redis-and-kafka.git",
-    "accountId": "5209e135-1494-4379-8c2c-22935739f622"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Ryu-Eun/study-redis-and-kafka.git&quot;,
+    &quot;accountId&quot;: &quot;5209e135-1494-4379-8c2c-22935739f622&quot;
   }
+}</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
 }]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="31AOemEUQDP3BEuwxNkpq1iQi9l" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build promotion.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "git-widget-placeholder": "promotion",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ryueun/Desktop/ALL_PROJ/Redis-Kafka/test-project/PROJECT-PROMOTION",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.DiscoveryServiceApplication">
+    <configuration name="DiscoveryServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="promotion.discovery-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.practice.discoveryservice.DiscoveryServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="promotion.discovery-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.practice.discoveryservice.DiscoveryServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PromotionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="promotion.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.practice.promotion.PromotionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="promotion.user-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.practice.userservice.UserServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -73,10 +158,24 @@
       <option name="presentableId" value="Default" />
       <updated>1754963509761</updated>
       <workItem from="1754963510757" duration="105000" />
+      <workItem from="1754963661215" duration="5184000" />
     </task>
+    <task id="LOCAL-00001" summary="[feature] PROJECT-PROMOTION 추가">
+      <option name="closed" value="true" />
+      <created>1754964076192</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754964076192</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[feature] PROJECT-PROMOTION 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feature] PROJECT-PROMOTION 추가" />
   </component>
 </project>

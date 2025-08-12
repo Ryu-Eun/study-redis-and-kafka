@@ -1,0 +1,79 @@
+POST http://localhost:8000/api/v1/users/validate-token
+Content-Type: application/json
+Content-Length: 224
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTUwMjY3MzYsImV4cCI6MTc1NTAzMDMzNn0.4nnDhQw0Oj-_8ZujyfrM5siB7lbkFss2DZ2l4j_DqqTTzgns3SMfK0Gzg0ko5KL9ZQ9YqiOprRYuHqNopl-GOQ"
+}
+
+<> 2025-08-13T042739.200.json
+
+###
+
+POST http://localhost:8000/api/v1/users/token/validate
+Content-Type: application/json
+Content-Length: 224
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTUwMjY3MzYsImV4cCI6MTc1NTAzMDMzNn0.4nnDhQw0Oj-_8ZujyfrM5siB7lbkFss2DZ2l4j_DqqTTzgns3SMfK0Gzg0ko5KL9ZQ9YqiOprRYuHqNopl-GOQ"
+}
+
+<> 2025-08-13T042649.404.json
+
+###
+
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+Content-Length: 62
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+<> 2025-08-13T042536.200.json
+
+###
+
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+Content-Length: 62
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+<> 2025-08-13T042355.200.json
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 84
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T042235.201.json
+
+###
+

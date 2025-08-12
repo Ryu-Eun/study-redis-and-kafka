@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/promotion" />
+            <option value="$PROJECT_DIR$/promotion/api-gateway" />
             <option value="$PROJECT_DIR$/promotion/discovery-service" />
             <option value="$PROJECT_DIR$/promotion/user-service" />
           </set>

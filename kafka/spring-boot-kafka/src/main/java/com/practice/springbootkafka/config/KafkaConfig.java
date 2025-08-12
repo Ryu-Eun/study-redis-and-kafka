@@ -42,7 +42,7 @@ public class KafkaConfig {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "order-group");// Consumer Group 이름
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);// Key를 String으로 역직렬화
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);// Value를 JSON에서 객체로 역직렬화
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.practice.domain");// 신뢰할 패키지 (보안설정)
+        props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.practice.springbootkafka.domain");// 신뢰할 패키지 (보안설정)
         return new DefaultKafkaConsumerFactory<>(props);
     }
 

@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] PROJECT-PROMOTION 추가">
-      <change afterPath="$PROJECT_DIR$/../../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/entity/UserLoginHistory.java" afterDir="false" />
+    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] User, UserLoginHistory 엔티티 추가">
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/config/PasswordEncoderConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/DuplicateUserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/UnauthorizedAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/repository/UserLoginHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/user-service/src/main/java/com/practice/userservice/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +53,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -158,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1754963509761</updated>
       <workItem from="1754963510757" duration="105000" />
-      <workItem from="1754963661215" duration="5184000" />
+      <workItem from="1754963661215" duration="9716000" />
     </task>
     <task id="LOCAL-00001" summary="[feature] PROJECT-PROMOTION 추가">
       <option name="closed" value="true" />
@@ -168,14 +173,51 @@
       <option name="project" value="LOCAL" />
       <updated>1754964076192</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[feature] 껍데기 프로젝트 promotion과 user-service, discovery-service 추가&#10;- discovery-service: eureka-server 의존성&#10;- user-service: eureka-client 의존성">
+      <option name="closed" value="true" />
+      <created>1754999341037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754999341037</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[feature] 껍데기 프로젝트 promotion과 user-service, discovery-service 추가&#10;- discovery-service: eureka-server 의존성&#10;- user-service: eureka-client 의존성">
+      <option name="closed" value="true" />
+      <created>1754999349495</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754999349495</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[feature] User, UserLoginHistory 엔티티 추가">
+      <option name="closed" value="true" />
+      <created>1754999390106</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754999390106</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[feature] PROJECT-PROMOTION 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feature] PROJECT-PROMOTION 추가" />
+    <MESSAGE value="[feature] 껍데기 프로젝트 promotion과 user-service, discovery-service 추가&#10;- discovery-service: eureka-server 의존성&#10;- user-service: eureka-client 의존성" />
+    <MESSAGE value="[feature] User, UserLoginHistory 엔티티 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feature] User, UserLoginHistory 엔티티 추가" />
   </component>
 </project>

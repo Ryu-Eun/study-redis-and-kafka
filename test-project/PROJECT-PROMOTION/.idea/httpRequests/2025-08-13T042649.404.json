@@ -1,6 +1,0 @@
-{
-  "timestamp": "2025-08-12T19:26:49.390+00:00",
-  "status": 404,
-  "error": "Not Found",
-  "path": "/api/v1/users/token/validate"
-}

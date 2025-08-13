@@ -1,5 +1,121 @@
 POST http://localhost:8000/api/v1/users/validate-token
 Content-Type: application/json
+Content-Length: 225
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0M0BleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU1MDkxMTkxLCJleHAiOjE3NTUwOTQ3OTF9.FrZjXCMJErZh8YjPnBTR53Hy0zzrrsmz6ppk1P-QsXABm6fOKJuW_UrDIlduGCCrbAu7ekJIGUu-A_FhHm3Gng"
+}
+
+<> 2025-08-13T221958.200.json
+
+###
+
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+Content-Length: 63
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test3@example.com",
+  "password": "password123"
+}
+
+<> 2025-08-13T221951.200.json
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 85
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test3@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T221933.201.json
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 85
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test2@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T221723.201.json
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 84
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T221712.409.txt
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 84
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T221707.409.txt
+
+###
+
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+Content-Length: 84
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+<> 2025-08-13T221452.409.txt
+
+###
+
+POST http://localhost:8000/api/v1/users/validate-token
+Content-Type: application/json
 Content-Length: 224
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.4
 Accept-Encoding: br, deflate, gzip, x-gzip

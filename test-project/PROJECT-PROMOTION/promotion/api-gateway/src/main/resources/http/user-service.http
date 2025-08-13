@@ -3,7 +3,7 @@ POST http://localhost:8000/api/v1/users/signup
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
+  "email": "test3@example.com",
   "password": "password123",
   "name": "testUser"
 }
@@ -13,7 +13,7 @@ POST http://localhost:8000/api/v1/users/login
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
+  "email": "test3@example.com",
   "password": "password123"
 }
 

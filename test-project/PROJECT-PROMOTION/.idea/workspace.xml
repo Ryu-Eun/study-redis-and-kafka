@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] UserDto 추가">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/api-gateway/promotion.api-gateway.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/user-service/promotion.user-service.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/java/com/practice/apigateway/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/resources/http/user-service.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="9ce829ef-db71-4837-b1cf-be3a719a5fe7" name="Changes" comment="[feature] JwtAuthenticationFilter 추가 &#10;- Authorization 헤더에서 token 추출해서 유효한 토큰이라면 X-USER-ID 헤더 추가">
+      <change afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/java/com/practice/apigateway/config/RateLimitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/java/com/practice/apigateway/controller/FallbackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/infrastructure/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promotion/infrastructure/redis-config/redis.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/api-gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/api-gateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion/api-gateway/src/main/resources/http/user-service.http" beforeDir="false" afterPath="$PROJECT_DIR$/promotion/api-gateway/src/main/resources/http/user-service.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +90,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.infrastructure: Compose Deployment.executor": "Run",
     "Gradle.Build promotion.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "HTTP Request.user-service | Validate 토큰.executor": "Run",
@@ -169,11 +170,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="infrastructure: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="promotion/infrastructure/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="HTTP Request.user-service | Validate 토큰" />
         <item itemvalue="HTTP Request.user-service | 회원 로그인" />
         <item itemvalue="HTTP Request.user-service | 회원 가입" />
+        <item itemvalue="Docker.infrastructure: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +204,7 @@
       <option name="presentableId" value="Default" />
       <updated>1754963509761</updated>
       <workItem from="1754963510757" duration="105000" />
-      <workItem from="1754963661215" duration="24721000" />
+      <workItem from="1754963661215" duration="39467000" />
     </task>
     <task id="LOCAL-00001" summary="[feature] PROJECT-PROMOTION 추가">
       <option name="closed" value="true" />
@@ -292,7 +302,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755024790601</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[feature] api-gateway 모듈 추가">
+      <option name="closed" value="true" />
+      <created>1755039396591</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1755039396591</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[feature] JwtAuthenticationFilter 추가 &#10;- Authorization 헤더에서 token 추출해서 유효한 토큰이라면 X-USER-ID 헤더 추가">
+      <option name="closed" value="true" />
+      <created>1755039519746</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1755039519746</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +347,19 @@
     <MESSAGE value="[feature] JWTService 추가  &#10;- jwt 토큰 생성&#10;- 토큰 유효성 검사 (시간 만료했는지도 검사)&#10;- 토큰 파싱&#10;- 기존 토큰 내용을 재료로 하는 기간 연장된 새 토큰 받기" />
     <MESSAGE value="[feature] Controller 추가" />
     <MESSAGE value="[feature] UserDto 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feature] UserDto 추가" />
+    <MESSAGE value="[feature] api-gateway 모듈 추가" />
+    <MESSAGE value="[feature] JwtAuthenticationFilter 추가 &#10;- Authorization 헤더에서 token 추출해서 유효한 토큰이라면 X-USER-ID 헤더 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feature] JwtAuthenticationFilter 추가 &#10;- Authorization 헤더에서 token 추출해서 유효한 토큰이라면 X-USER-ID 헤더 추가" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/promotion/api-gateway/src/main/java/com/practice/apigateway/controller/FallbackController.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

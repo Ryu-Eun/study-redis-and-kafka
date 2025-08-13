@@ -1,0 +1,10 @@
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0M0BleGFtcGxlLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzU1MDkxMTkxLCJleHAiOjE3NTUwOTQ3OTF9.FrZjXCMJErZh8YjPnBTR53Hy0zzrrsmz6ppk1P-QsXABm6fOKJuW_UrDIlduGCCrbAu7ekJIGUu-A_FhHm3Gng",
+  "user": {
+    "id": 3,
+    "email": "test3@example.com",
+    "name": "testUser",
+    "createdAt": "2025-08-13T22:19:33.463079",
+    "updatedAt": "2025-08-13T22:19:33.463092"
+  }
+}

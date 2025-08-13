@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.resilience4j:resilience4j-core:2.2.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.resilience4j" artifactId="resilience4j-core" version="2.2.0" baseVersion="2.2.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.resilience4j/resilience4j-core/2.2.0/61b780cfbfbc41d7b8b26278ca3b81c034330457/resilience4j-core-2.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

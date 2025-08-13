@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.resilience4j:resilience4j-micrometer:2.2.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="io.github.resilience4j" artifactId="resilience4j-micrometer" version="2.2.0" baseVersion="2.2.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.resilience4j/resilience4j-micrometer/2.2.0/67470bfe3a59e74bc5198aef9b2c6fabab67c35d/resilience4j-micrometer-2.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,2 +1,23 @@
+# OS
+.DS_Store
+
+# IntelliJ / IDE
 .idea/
 *.iml
+
+# Gradle
+.gradle/
+**/.gradle/
+build/
+**/build/
+
+# Maven (혹시 섞여 있으면)
+target/
+**/target/
+
+# Java/Logs
+*.class
+*.log
+
+# (선택) Spring Initializr 기본 문서
+HELP.md

@@ -33,13 +33,13 @@ public class CouponPolicy {
     private Integer discountValue;
 
     @Column(nullable = false)
-    private Integer minimumOrderAmount;
+    private Integer minimumOrderAmount; // 최소주문가격
 
     @Column(nullable = false)
-    private Integer maximumDiscountAmount;
+    private Integer maximumDiscountAmount; // 정률할인일때 최대 할인가격
 
     @Column(nullable = false)
-    private Integer totalQuantity;
+    private Integer totalQuantity; // 갯수
 
     @Column(nullable = false)
     private LocalDateTime startTime;

@@ -1,0 +1,30 @@
+### 회원 가입
+POST http://localhost:8000/api/v1/users/signup
+Content-Type: application/json
+
+{
+  "email": "test3@example.com",
+  "password": "password123",
+  "name": "testUser"
+}
+
+### 회원 로그인
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "test3@example.com",
+  "password": "password123"
+}
+
+> {%
+    client.global.set("auth_token", response.body.token);
+%}
+
+### Validate 토큰
+POST http://localhost:8000/api/v1/users/validate-token
+Content-Type: application/json
+
+{
+  "token": "{{auth_token}}"
+}

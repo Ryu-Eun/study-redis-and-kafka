@@ -1,0 +1,74 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: api-gateway
+  data:
+    redis:
+      host: localhost
+      port: 6380
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            # ??? ???? ?? API (????, ???, ????, ????). ????
+            - id: public-user-signup
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/v1/users/signup
+
+            - id: public-user-login
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/v1/users/login
+
+            - id: public-user-validate
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/v1/users/validate
+
+            - id: public-user-refresh-token
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/v1/users/refresh-token
+
+            # ????? ?? ??? API (/api/v1/users/me, /api/v1/users/me/password ?). JWT?? ??
+            - id: protected-user-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/api/v1/users/**
+              filters:
+                - name: JwtAuthenticationFilter
+          default-filters: # ?? ???? ???? ???
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+                redis-rate-limiter.requestedToken: 1
+                key-resolver: "#{@userKeyResolver}"
+
+            - name: CircuitBreaker
+              args:
+                name: userServiceBreaker
+                fallbackUri: forward:/fallback/users
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userServiceBreaker:
+        register-health-indicator: true
+        slidingWindowSize: 5 # ?? ????? ??? ?? ?? ?
+        minimumNumberOfCalls: 10 # ?? ?? ??
+        permittedNumberOfCallsInHalfOpenState: 10 # HalfOpenState?? ???? ?? ?
+        automaticTransitionFromOpenToHalfOpenEnabled: true # ??????? ???? HalfOpenState? ????? ??
+        waitDurationInOpenState: 5000 # ?? ????? ?? ??? ???? ??
+        failureRateThreshold: 50 # ??? ????, ? ??? ???? ??? ???? ?? ????? ????
+        eventConsumerBufferSize: 10
+        record-exceptions: # ?? exception ????? ??? ????
+          - java.util.concurrent.TimeoutException
+          - org.springframework.cloud.gateway.support.NotFoundException
+          - io.github.resilience4j.circuitbreaker.CallNotPermittedException
+

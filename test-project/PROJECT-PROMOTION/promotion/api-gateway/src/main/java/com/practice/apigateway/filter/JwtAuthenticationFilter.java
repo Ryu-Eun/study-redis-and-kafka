@@ -25,7 +25,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
         super(Config.class);
         this.webClient = WebClient.builder()
                 .filter(lbFunction) // 로드밸런싱 기능 추가
-                .baseUrl("http://user-service") // 기본 url 설정
+                .baseUrl("http://user-service") // 기본 url 설정. spring.application.name 설정값. 토큰검증때문에 고정.
                 .build();
     }
 
@@ -39,7 +39,7 @@ public class JwtAuthenticationFilter extends AbstractGatewayFilterFactory<JwtAut
                 String token = authHeader.substring(7);
 
                 return validateToken(token)
-                        .flatMap(userId -> proceedWithUserId(userId, exchange, chain))
+                        .flatMap(userId -> proceedWithUserId(userId, exchange, chain)) // 검증 성공했으면 X-USER-ID 헤더를 추가한 새 요청을 만들어서 다음 필터로 전달
                         .switchIfEmpty(chain.filter(exchange)) // validateToken이 빈 결과물을 반환하면 (토큰이 유효하지 않다면) 헤더 추가없이 다음 필터로
                         .onErrorResume(e -> handleAuthenticationError(exchange, e)); // 어떤 단계에서든 에러가 발생하면 401 에러
             }

@@ -2,8 +2,10 @@ package com.practice.couponservice.service.v3;
 
 import com.practice.couponservice.config.UserIdInterceptor;
 import com.practice.couponservice.dto.v3.CouponDto;
+import com.practice.couponservice.entity.Coupon;
 import com.practice.couponservice.entity.CouponPolicy;
 import com.practice.couponservice.exception.CouponIssueException;
+import com.practice.couponservice.exception.CouponNotFoundException;
 import com.practice.couponservice.repository.CouponRepository;
 import com.practice.couponservice.service.v2.CouponPolicyService;
 import com.practice.couponservice.service.v2.CouponStateService;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -44,7 +47,7 @@ public class CouponService {
         try{
             boolean isLocked = lock.tryLock(LOCK_WAIT_TIME, LOCK_LEASE_TIME, TimeUnit.SECONDS);
             if(isLocked){
-                throw new CouponIssueException("쿠폰 발급 요청이 많이 처리할 수 없습니다. 잠시 후 다시 시도해주세요.")
+                throw new CouponIssueException("쿠폰 발급 요청이 많이 처리할 수 없습니다. 잠시 후 다시 시도해주세요.");
             }
 
             CouponPolicy couponPolicy = couponPolicyService.getCouponPolicy(request.getCouponPolicyId());
@@ -84,5 +87,58 @@ public class CouponService {
         }
     }
 
+    @Transactional
+    public void issueCoupon(CouponDto.IssueMessage message) {
+        try {
+            CouponPolicy policy = couponPolicyService.getCouponPolicy(message.getPolicyId());
+            if (policy == null) {
+                throw new IllegalArgumentException("쿠폰 정책을 찾을 수 없습니다.");
+            }
+
+            Coupon coupon = couponRepository.save(Coupon.builder()
+                    .couponPolicy(policy)
+                    .userId(message.getUserId())
+                    .couponCode(generateCouponCode())
+                    .build());
+
+            log.info("Coupon issued successfully: policyId={}, userId={}", message.getPolicyId(), message.getUserId());
+
+        } catch (Exception e) {
+            log.error("Failed to issue coupon: {}", e.getMessage());
+            throw e;
+        }
+    }
+
+    private String generateCouponCode() {
+        return UUID.randomUUID().toString().replace("-", "").substring(0, 12).toUpperCase();
+    }
+
+
+    // useCoupon, cancelCoupon은 v2와 동일
+    @Transactional
+    public Coupon useCoupon(Long couponId, Long orderId) {
+        Coupon coupon = couponRepository.findByIdWithLock(couponId)
+                .orElseThrow(() -> new CouponNotFoundException("쿠폰을 찾을 수 없습니다."));
+
+        coupon.use(orderId);
+        couponStateService.updateCouponState(coupon);
+
+        return coupon;
+    }
+
+    @Transactional
+    public Coupon cancelCoupon(Long couponId) {
+        Coupon coupon = couponRepository.findByIdAndUserId(couponId, UserIdInterceptor.getCurrentUserId())
+                .orElseThrow(() -> new IllegalArgumentException("쿠폰을 찾을 수 없습니다."));
+
+        if (!coupon.isUsed()) {
+            throw new IllegalStateException("사용되지 않은 쿠폰은 취소할 수 없습니다.");
+        }
+
+        coupon.cancel();
+        couponStateService.updateCouponState(coupon);
+
+        return coupon;
+    }
 
 }

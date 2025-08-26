@@ -46,7 +46,7 @@ public class CouponService {
 
         try{
             boolean isLocked = lock.tryLock(LOCK_WAIT_TIME, LOCK_LEASE_TIME, TimeUnit.SECONDS);
-            if(isLocked){
+            if(!isLocked){
                 throw new CouponIssueException("쿠폰 발급 요청이 많이 처리할 수 없습니다. 잠시 후 다시 시도해주세요.");
             }
 

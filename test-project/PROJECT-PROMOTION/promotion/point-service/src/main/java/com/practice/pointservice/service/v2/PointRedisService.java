@@ -126,15 +126,17 @@ public class PointRedisService {
 
             if(currentBalance < amount){
                 // 잔액 부족
-                throw new IllegalStateException("Insufficient balance");
+                throw new IllegalArgumentException("Insufficient balance");
             }
 
             // 포인트 잔액 감소
             PointBalance pointBalance = pointBalanceRepository.findByUserId(userId)
-                    .orElseThrow(() -> new IllegalStateException("User not found"));
+                    .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
             pointBalance.subtractBalance(amount);
             pointBalance = pointBalanceRepository.save(pointBalance);
+
+            updateBalanceCache(userId, pointBalance.getBalance());
 
             // 포인트 이력 저장
             Point point = Point.builder()
@@ -160,7 +162,7 @@ public class PointRedisService {
     @Transactional
     public Point cancelPoints(Long pointId, String description){
         Point originalPoint = pointRepository.findById(pointId)
-                .orElseThrow(() -> new IllegalStateException("Point not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Point not found"));
 
         Long userId = originalPoint.getUserId();
 
@@ -173,7 +175,7 @@ public class PointRedisService {
             }
 
             if(originalPoint.getType() == PointType.CANCELED){
-                throw new IllegalStateException("Already cancelled point");
+                throw new IllegalArgumentException("Already cancelled point");
             }
 
             PointBalance pointBalance = originalPoint.getPointBalance();

@@ -89,7 +89,6 @@ public class PointRedisService {
                 lock.unlock();
             }
         }
-
     }
 
     private void updateBalanceCache(Long userId, Long currentBalance) {
@@ -107,4 +106,117 @@ public class PointRedisService {
         RMap<String, Long> balanceMap = redissonClient.getMap(POINT_BALANCE_MAP);
         return balanceMap.get(String.valueOf(userId));
     }
+
+
+    @Transactional
+    public Point usePoints(Long userId, Long amount, String description){
+        RLock lock = redissonClient.getLock(POINT_LOCK_PREFIX + userId);
+
+        try{
+            boolean locked = lock.tryLock(LOCK_WAIT_TIME, LOCK_LEASE_TIME, TimeUnit.SECONDS);
+            if(!locked){
+                throw new IllegalStateException("Failed to acquire lock for user: " + userId);
+            }
+
+            Long currentBalance = getBalanceFromCache(userId);
+            if(currentBalance == null){
+                currentBalance = getBalanceFromDB(userId);
+                updateBalanceCache(userId, currentBalance);
+            }
+
+            if(currentBalance < amount){
+                // 잔액 부족
+                throw new IllegalStateException("Insufficient balance");
+            }
+
+            // 포인트 잔액 감소
+            PointBalance pointBalance = pointBalanceRepository.findByUserId(userId)
+                    .orElseThrow(() -> new IllegalStateException("User not found"));
+
+            pointBalance.subtractBalance(amount);
+            pointBalance = pointBalanceRepository.save(pointBalance);
+
+            // 포인트 이력 저장
+            Point point = Point.builder()
+                    .userId(userId)
+                    .amount(amount)
+                    .type(PointType.USED)
+                    .description(description)
+                    .balanceSnapshot(pointBalance.getBalance())
+                    .pointBalance(pointBalance)
+                    .build();
+            return pointRepository.save(point);
+
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("Lock acquisition was interrupted", e);
+        } finally {
+            if(lock.isHeldByCurrentThread()){
+                lock.unlock();
+            }
+        }
+    }
+
+    @Transactional
+    public Point cancelPoints(Long pointId, String description){
+        Point originalPoint = pointRepository.findById(pointId)
+                .orElseThrow(() -> new IllegalStateException("Point not found"));
+
+        Long userId = originalPoint.getUserId();
+
+        RLock lock = redissonClient.getLock(POINT_LOCK_PREFIX + userId);
+
+        try{
+            boolean locked = lock.tryLock(LOCK_WAIT_TIME, LOCK_LEASE_TIME, TimeUnit.SECONDS);
+            if(!locked){
+                throw new IllegalStateException("Failed to acquire lock for user: " + userId);
+            }
+
+            if(originalPoint.getType() == PointType.CANCELED){
+                throw new IllegalStateException("Already cancelled point");
+            }
+
+            PointBalance pointBalance = originalPoint.getPointBalance();
+            if(originalPoint.getType() == PointType.EARNED){
+                pointBalance.subtractBalance(pointBalance.getBalance());
+            }else{
+                pointBalance.addBalance(pointBalance.getBalance());
+            }
+
+            pointBalance = pointBalanceRepository.save(pointBalance);
+            updateBalanceCache(userId, pointBalance.getBalance());
+
+            Point point = Point.builder()
+                    .userId(userId)
+                    .amount(originalPoint.getAmount())
+                    .type(PointType.CANCELED)
+                    .description(description)
+                    .balanceSnapshot(pointBalance.getBalance())
+                    .pointBalance(pointBalance)
+                    .build();
+            return pointRepository.save(point);
+
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException("Lock acquisition was interrupted", e);
+        }finally {
+            if(lock.isHeldByCurrentThread()){
+                lock.unlock();
+            }
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public Long getBalance(Long userId){
+        Long cachedBalance = getBalanceFromCache(userId);
+        if(cachedBalance != null){
+            return cachedBalance;
+        }
+
+        Long dbBalance = getBalanceFromDB(userId);
+        updateBalanceCache(userId, dbBalance);
+
+        return dbBalance;
+    }
+
 }

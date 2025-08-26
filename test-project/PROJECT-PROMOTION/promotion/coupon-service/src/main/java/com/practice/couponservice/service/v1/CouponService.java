@@ -1,5 +1,6 @@
 package com.practice.couponservice.service.v1;
 
+import com.practice.couponservice.aop.CouponMetered;
 import com.practice.couponservice.config.UserIdInterceptor;
 import com.practice.couponservice.dto.v1.CouponDto;
 import com.practice.couponservice.entity.Coupon;
@@ -47,6 +48,7 @@ public class CouponService {
 
 
     @Transactional
+    @CouponMetered(version = "v1")
     public Coupon issueCoupon(CouponDto.IssueRequest request) {
 
         CouponPolicy couponPolicy = couponPolicyRepository.findByIdWithLock(request.getCouponPolicyId())

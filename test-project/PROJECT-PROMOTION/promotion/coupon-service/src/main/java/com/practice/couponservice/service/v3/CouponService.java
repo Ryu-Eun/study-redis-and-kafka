@@ -1,5 +1,6 @@
 package com.practice.couponservice.service.v3;
 
+import com.practice.couponservice.aop.CouponMetered;
 import com.practice.couponservice.config.UserIdInterceptor;
 import com.practice.couponservice.dto.v3.CouponDto;
 import com.practice.couponservice.entity.Coupon;
@@ -39,6 +40,7 @@ public class CouponService {
 
 
     @Transactional(readOnly = true)
+    @CouponMetered(version = "v3")
     public void requestCouponIssue(CouponDto.IssueRequest request){
         String quantityKey = COUPON_QUANTITY_KEY + request.getCouponPolicyId();
         String lockKey = COUPON_LOCK_KEY + request.getCouponPolicyId();

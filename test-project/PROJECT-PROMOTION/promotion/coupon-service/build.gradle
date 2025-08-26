@@ -46,6 +46,10 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     implementation 'org.springframework.boot:spring-boot-starter-web:3.5.3'
+
+    // 분산락이나 레디스 관련 핸들링이 조금 더 편해짐
+    // https://mvnrepository.com/artifact/org.redisson/redisson
+    implementation 'org.redisson:redisson:3.50.0'
 }
 
 dependencyManagement {

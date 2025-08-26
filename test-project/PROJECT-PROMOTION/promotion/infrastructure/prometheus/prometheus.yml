@@ -8,7 +8,7 @@ rule_files:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ['localhost:9091']
+      - targets: ['localhost:9090']
 
   - job_name: 'coupon-service'
     metrics_path: '/actuator/prometheus'

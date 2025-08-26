@@ -50,6 +50,12 @@ dependencies {
     // 분산락이나 레디스 관련 핸들링이 조금 더 편해짐
     // https://mvnrepository.com/artifact/org.redisson/redisson
     implementation 'org.redisson:redisson:3.50.0'
+
+    // https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.15.2'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop:3.5.3'
 }
 
 dependencyManagement {

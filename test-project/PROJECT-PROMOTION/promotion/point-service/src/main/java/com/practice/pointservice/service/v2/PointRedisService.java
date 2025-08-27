@@ -1,5 +1,6 @@
 package com.practice.pointservice.service.v2;
 
+import com.practice.pointservice.aop.PointMetered;
 import com.practice.pointservice.entity.Point;
 import com.practice.pointservice.entity.PointBalance;
 import com.practice.pointservice.entity.PointType;
@@ -38,6 +39,7 @@ public class PointRedisService {
     private final PointRepository pointRepository;
 
     @Transactional
+    @PointMetered(version = "v2")
     public Point earnPoints(Long userId, Long amount, String description){
         // 분산락 획득
         RLock lock = redissonClient.getLock(POINT_LOCK_PREFIX + userId);
@@ -109,6 +111,7 @@ public class PointRedisService {
 
 
     @Transactional
+    @PointMetered(version = "v2")
     public Point usePoints(Long userId, Long amount, String description){
         RLock lock = redissonClient.getLock(POINT_LOCK_PREFIX + userId);
 

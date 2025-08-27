@@ -1,5 +1,6 @@
 package com.practice.pointservice.service.v1;
 
+import com.practice.pointservice.aop.PointMetered;
 import com.practice.pointservice.entity.Point;
 import com.practice.pointservice.entity.PointBalance;
 import com.practice.pointservice.entity.PointType;
@@ -20,6 +21,7 @@ public class PointService {
     private final PointBalanceRepository pointBalanceRepository;
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
+    @PointMetered(version = "v1")
     public Point earnPoints(Long userId, Long amount, String description){
         PointBalance pointBalance = pointBalanceRepository.findByUserId(userId)
                 .orElseGet(() -> PointBalance.builder()
@@ -43,6 +45,7 @@ public class PointService {
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
+    @PointMetered(version = "v1")
     public Point usePoints(Long userId, Long amount, String description){
         PointBalance pointBalance = pointBalanceRepository.findByUserId(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));

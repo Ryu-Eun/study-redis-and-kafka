@@ -56,6 +56,7 @@ public class TimeSaleService {
         return timeSaleRepository.findAllByStartAtBeforeAndEndAtAfterAndStatus(now, TimeSaleStatus.ACTIVE, pageable);
     }
 
+    @Transactional
     public TimeSale purchaseTimeSale(Long timeSaleId, TimeSaleDto.PurchaseRequest request){
         TimeSale timeSale = timeSaleRepository.findByIdWithPessimisticLock(timeSaleId)
                 .orElseThrow(() -> new IllegalArgumentException("TimeSale not found"));

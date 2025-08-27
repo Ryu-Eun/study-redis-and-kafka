@@ -15,6 +15,12 @@ scrape_configs:
     static_configs:
       - targets: ['docker.for.mac.localhost:8080']
 
+  - job_name: 'point-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['docker.for.mac.localhost:8083']
+
+
 alerting:
   alertmanagers:
     - static_configs:

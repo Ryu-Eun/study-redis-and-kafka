@@ -44,6 +44,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.redisson/redisson
     implementation 'org.redisson:redisson:3.50.0'
 
+    implementation 'org.springframework.kafka:spring-kafka'
+
 }
 
 dependencyManagement {

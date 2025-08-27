@@ -35,12 +35,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-# Kafka / ZooKeeper runtime data
-**/infrastructure/data/kafka/**
-**/infrastructure/data/zookeeper/**
-**/infrastructure/data/kafka-logs/**
-
-# Jenkins runtime data
-infrastructure/jenkins_home/
-**/jenkins_home/

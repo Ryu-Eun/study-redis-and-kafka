@@ -40,3 +40,7 @@ out/
 **/infrastructure/data/kafka/**
 **/infrastructure/data/zookeeper/**
 **/infrastructure/data/kafka-logs/**
+
+# Jenkins runtime data
+infrastructure/jenkins_home/
+**/jenkins_home/

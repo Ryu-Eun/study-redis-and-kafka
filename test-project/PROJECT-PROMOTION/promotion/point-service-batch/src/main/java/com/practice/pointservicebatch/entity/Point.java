@@ -54,13 +54,14 @@ public class Point {
     private LocalDateTime updatedAt;
 
     @Builder
-    public Point(Long userId, Long amount, PointType type, String description, Long balanceSnapshot, PointBalance pointBalance) {
+    public Point(Long userId, Long amount, PointType type, String description, Long balanceSnapshot, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.userId = userId;
         this.amount = amount;
         this.type = type;
         this.description = description;
         this.balanceSnapshot = balanceSnapshot;
-        this.pointBalance = pointBalance;
-        this.version = 0L;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
+
 }

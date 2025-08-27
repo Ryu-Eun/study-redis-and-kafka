@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PurchaseRequestMessage {
-    private String timeSaleId;
+    private Long timeSaleId;
     private Long userId;
     private Long quantity;
     private String requestId;

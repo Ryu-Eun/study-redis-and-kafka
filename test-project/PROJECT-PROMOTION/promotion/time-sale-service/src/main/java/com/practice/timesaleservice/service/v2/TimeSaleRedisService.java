@@ -119,7 +119,7 @@ public class TimeSaleRedisService {
         }
     }
 
-    private void saveToRedis(TimeSale timeSale) {
+    public void saveToRedis(TimeSale timeSale) {
         try {
             String json = objectMapper.writeValueAsString(timeSale);
             RBucket<String> bucket = redissonClient.getBucket(TIME_SALE_KEY + timeSale.getId());
